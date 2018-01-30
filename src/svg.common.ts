@@ -137,7 +137,7 @@ export function fromNativeSource(source: any): definition.ImageSourceSVG {
 
 export function fromUrl(url: string): definition.ImageSourceSVG {
     var image = new definition.ImageSourceSVG();
-    return image.loadFromUrl(url) ? image : null;
+    return image.fromUrl(url) ? image : null;
 }
 
 export function fromFileOrResource(path: string): definition.ImageSourceSVG {
