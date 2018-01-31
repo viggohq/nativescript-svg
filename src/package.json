@@ -1,6 +1,6 @@
 {
   "name": "@teammaestro/nativescript-svg",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "NativeScript SVG plugin",
   "main": "svg",
   "typings": "svg.d.ts",

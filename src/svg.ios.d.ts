@@ -1,5 +1,5 @@
-import svg = require("./svg");
-import common = require("./svg.common");
+import svg = require('./svg');
+import common = require('./svg.common');
 export declare class ImageSourceSVG implements svg.ImageSourceSVG {
     private nativeView;
     loadFromResource(name: string): boolean;
@@ -10,7 +10,7 @@ export declare class ImageSourceSVG implements svg.ImageSourceSVG {
     fromData(data: any): Promise<boolean>;
     loadFromBase64(source: string): boolean;
     fromBase64(source: string): Promise<boolean>;
-    loadFromUrl(url: string): boolean;
+    private loadFromUrl(url);
     fromUrl(url: string): Promise<boolean>;
     setNativeSource(source: any): boolean;
     saveToFile(path: string): boolean;
