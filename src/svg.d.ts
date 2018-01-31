@@ -33,7 +33,7 @@
          * - **sync** *(default)* - blocks the UI if necessary to display immediately, good for small icons.
          * - **async** - will try to load in the background, may appear with short delay, good for large images.
          */
-        loadMode: string; // "sync" | "async";        
+        loadMode: string; // "sync" | "async";
     }
 
 
@@ -110,12 +110,6 @@
          * @param source The Base64 string to load the image from.
          */
         fromBase64(source: string): Promise<boolean>;
-
-        /**
-         * Loads this instance from the specified url.
-         * @param url string to load the image from.
-         */
-        loadFromUrl(url: string): boolean;
 
         /**
          * Loads this instance from the specified url asynchronously.
