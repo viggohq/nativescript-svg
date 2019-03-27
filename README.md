@@ -1,7 +1,6 @@
 [![npm](https://img.shields.io/npm/v/@teammaestro/nativescript-svg.svg)](https://www.npmjs.com/package/@teammaestro/nativescript-svg)
 [![npm](https://img.shields.io/npm/dt/@teammaestro/nativescript-svg.svg?label=npm%20downloads)](https://www.npmjs.com/package/@teammaestro/nativescript-svg)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
-[![Dependency Status](https://david-dm.org/peoplewareDo/nativescript-svg/status.svg)](https://david-dm.org/peoplewareDo/nativescript-svg#info=dependencies)
 
 # NativeScript SVG
 
