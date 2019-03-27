@@ -7,9 +7,9 @@
 
 ## Install
 
-`tns plugin add nativescript-svg`
+`tns plugin add @teammaestro/nativescript-svg`
 
-### Usage
+## Usage
 
 You use it in the same way you use Image source.
 
@@ -45,34 +45,34 @@ svgFile
 
 ##### ImageSourceSVGModule.fromResource(name: string): ImageSourceSVG
 
-* Loads this instance from the specified resource name.
+- Loads this instance from the specified resource name.
 
 ##### ImageSourceSVGModule.fromFile(path: string): ImageSourceSVG
 
-* Creates a new ImageSourceSVG instance and loads it from the specified file.
+- Creates a new ImageSourceSVG instance and loads it from the specified file.
 
 ##### ImageSourceSVGModule.fromData(data: any): ImageSourceSVG
 
-* Creates a new ImageSourceSVG instance and loads it from the specified resource name.
+- Creates a new ImageSourceSVG instance and loads it from the specified resource name.
 
 ##### ImageSourceSVGModule.fromBase64(source: string): ImageSourceSVG
 
-* Creates a new ImageSourceSVG instance and loads it from the specified resource name.
+- Creates a new ImageSourceSVG instance and loads it from the specified resource name.
 
 ##### ImageSourceSVGModule.fromBase64(source: string): ImageSourceSVG
 
-* Creates a new ImageSourceSVG instance and loads it from the specified resource name.
+- Creates a new ImageSourceSVG instance and loads it from the specified resource name.
 
 ##### ImageSourceSVGModule.fromUrl(url: string): Promise:ImageSourceSVG
 
-* Downloads the image from the provided Url and creates a new ImageSourceSVG instance from it.
+- Downloads the image from the provided Url and creates a new ImageSourceSVG instance from it.
 
 ---
 
 You can call every method in two ways, for example:
 
 ```
-//from the svf file object
+//from the svg file object
 svgFile.loadFromResource(name: string): boolean  // synchronously
 svgFile.fromResource(name: string): ImageSourceSVG //asynchronously
 ```

@@ -1,1 +1,1 @@
-export * from "./nativescript-svg-module";
+export * from './nativescript-svg-module';

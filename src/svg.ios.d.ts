@@ -1,3 +1,4 @@
+/// <reference path="node_modules/tns-platform-declarations/ios.d.ts" />
 import svg = require('./svg');
 import common = require('./svg.common');
 export declare class ImageSourceSVG implements svg.ImageSourceSVG {
@@ -10,7 +11,7 @@ export declare class ImageSourceSVG implements svg.ImageSourceSVG {
     fromData(data: any): Promise<boolean>;
     loadFromBase64(source: string): boolean;
     fromBase64(source: string): Promise<boolean>;
-    private loadFromUrl(url);
+    private loadFromUrl;
     fromUrl(url: string): Promise<boolean>;
     setNativeSource(source: any): boolean;
     saveToFile(path: string): boolean;
