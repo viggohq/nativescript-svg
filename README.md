@@ -1,5 +1,5 @@
-[![npm](https://img.shields.io/npm/v/nativescript-svg.svg)](https://www.npmjs.com/package/nativescript-svg)
-[![npm](https://img.shields.io/npm/dt/nativescript-svg.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-svg)
+[![npm](https://img.shields.io/npm/v/@teammaestro/nativescript-svg.svg)](https://www.npmjs.com/package/@teammaestro/nativescript-svg)
+[![npm](https://img.shields.io/npm/dt/@teammaestro/nativescript-svg.svg?label=npm%20downloads)](https://www.npmjs.com/package/@teammaestro/nativescript-svg)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![Dependency Status](https://david-dm.org/peoplewareDo/nativescript-svg/status.svg)](https://david-dm.org/peoplewareDo/nativescript-svg#info=dependencies)
 
@@ -22,7 +22,7 @@ You use it in the same way you use Image source.
 ### Quick start
 
 ```js
-var ImageSourceSVGModule = require('nativescript-svg');
+var ImageSourceSVGModule = require('@teammaestro/nativescript-svg');
 var svgFile = new ImageSourceSVGModule.ImageSourceSVG();
 
 var loaded = svgFile.fromResource('foxie');
@@ -88,7 +88,7 @@ Since ver 1.1 Implement a similar image tag to be used as for example:
 
 ```xml
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      xmlns:svg="nativescript-svg" loaded="pageLoaded">
+      xmlns:svg="@teammaestro/nativescript-svg" loaded="pageLoaded">
   <StackLayout>
     <!--svg image tag-->
     <svg:SVGImage src="~/image/nativescript.svg" height="100" />
