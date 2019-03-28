@@ -175,7 +175,7 @@ export class SVGImage extends common.SVGImage {
   }
 
   public createNativeView() {
-    return new com.caverock.androidsvg.SVGImageView(this._context); // new org.nativescript.widgets.ImageView(this._context);
+    return new com.caverock.androidsvg.SVGImageView(this._context);
   }
 
   public _setNativeImage(nativeImage: any) {
