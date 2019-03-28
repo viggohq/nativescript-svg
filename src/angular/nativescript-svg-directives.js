@@ -6,7 +6,7 @@ var SVGImageDirective = (function () {
     }
     SVGImageDirective = __decorate([
         core_1.Directive({
-            selector: "SVGImage"
+            selector: 'SVGImage'
         })
     ], SVGImageDirective);
     return SVGImageDirective;

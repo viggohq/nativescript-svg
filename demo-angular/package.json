@@ -1,40 +1,41 @@
 {
-  "description": "NativeScript Application",
-  "license": "SEE LICENSE IN <your-license-filename>",
-  "readme": "NativeScript Application",
-  "repository": "<fill-your-repository-here>",
   "nativescript": {
-    "id": "org.nativescript.ngtest",
+    "id": "org.nativescript.test",
     "tns-android": {
-      "version": "3.4.1"
+      "version": "5.2.1"
     },
     "tns-ios": {
-      "version": "3.4.1"
+      "version": "5.2.0"
     }
   },
+  "description": "NativeScript Application",
+  "license": "SEE LICENSE IN <your-license-filename>",
+  "repository": "<fill-your-repository-here>",
   "dependencies": {
-    "@angular/animations": "~4.1.0",
-    "@angular/common": "~4.1.0",
-    "@angular/compiler": "~4.1.0",
-    "@angular/core": "~4.1.0",
-    "@angular/forms": "~4.1.0",
-    "@angular/http": "~4.1.0",
-    "@angular/platform-browser": "~4.1.0",
-    "@angular/router": "~4.1.0",
-    "nativescript-angular": "~3.0.0",
-    "@teammaestro/nativescript-svg": "../src",
-    "nativescript-theme-core": "~1.0.2",
-    "reflect-metadata": "~0.1.8",
-    "rxjs": "~5.3.0",
-    "tns-core-modules": "^3.0.0",
-    "zone.js": "~0.8.2"
+    "@angular/animations": "~7.2.0",
+    "@angular/common": "~7.2.0",
+    "@angular/compiler": "~7.2.0",
+    "@angular/core": "~7.2.0",
+    "@angular/forms": "~7.2.0",
+    "@angular/http": "~7.2.0",
+    "@angular/platform-browser": "~7.2.0",
+    "@angular/platform-browser-dynamic": "~7.2.0",
+    "@angular/router": "~7.2.0",
+    "nativescript-angular": "~7.2.1",
+    "nativescript-theme-core": "~1.0.4",
+    "reflect-metadata": "~0.1.12",
+    "rxjs": "~6.3.0",
+    "@teammaestro/nativescript-svg": "file:../src",
+    "tns-core-modules": "~5.2.0",
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "babel-traverse": "6.25.0",
-    "babel-types": "6.25.0",
-    "babylon": "6.17.3",
-    "lazy": "1.0.11",
-    "nativescript-dev-typescript": "~0.4.0",
-    "typescript": "~2.2.1"
-  }
+    "@angular/compiler-cli": "~7.2.0",
+    "@nativescript/schematics": "~0.5.0",
+    "@ngtools/webpack": "~7.2.0",
+    "nativescript-dev-typescript": "~0.8.0",
+    "nativescript-dev-webpack": "~0.20.0"
+  },
+  "gitHead": "f548ec926e75201ab1b7c4a3a7ceefe7a4db15af",
+  "readme": "NativeScript Application"
 }

@@ -1,15 +1,14 @@
-[![npm](https://img.shields.io/npm/v/nativescript-svg.svg)](https://www.npmjs.com/package/nativescript-svg)
-[![npm](https://img.shields.io/npm/dt/nativescript-svg.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-svg)
+[![npm](https://img.shields.io/npm/v/@teammaestro/nativescript-svg.svg)](https://www.npmjs.com/package/@teammaestro/nativescript-svg)
+[![npm](https://img.shields.io/npm/dt/@teammaestro/nativescript-svg.svg?label=npm%20downloads)](https://www.npmjs.com/package/@teammaestro/nativescript-svg)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
-[![Dependency Status](https://david-dm.org/peoplewareDo/nativescript-svg/status.svg)](https://david-dm.org/peoplewareDo/nativescript-svg#info=dependencies)
 
 # NativeScript SVG
 
 ## Install
 
-`tns plugin add nativescript-svg`
+`tns plugin add @teammaestro/nativescript-svg`
 
-### Usage
+## Usage
 
 You use it in the same way you use Image source.
 
@@ -22,7 +21,7 @@ You use it in the same way you use Image source.
 ### Quick start
 
 ```js
-var ImageSourceSVGModule = require('nativescript-svg');
+var ImageSourceSVGModule = require('@teammaestro/nativescript-svg');
 var svgFile = new ImageSourceSVGModule.ImageSourceSVG();
 
 var loaded = svgFile.fromResource('foxie');
@@ -45,34 +44,34 @@ svgFile
 
 ##### ImageSourceSVGModule.fromResource(name: string): ImageSourceSVG
 
-* Loads this instance from the specified resource name.
+- Loads this instance from the specified resource name.
 
 ##### ImageSourceSVGModule.fromFile(path: string): ImageSourceSVG
 
-* Creates a new ImageSourceSVG instance and loads it from the specified file.
+- Creates a new ImageSourceSVG instance and loads it from the specified file.
 
 ##### ImageSourceSVGModule.fromData(data: any): ImageSourceSVG
 
-* Creates a new ImageSourceSVG instance and loads it from the specified resource name.
+- Creates a new ImageSourceSVG instance and loads it from the specified resource name.
 
 ##### ImageSourceSVGModule.fromBase64(source: string): ImageSourceSVG
 
-* Creates a new ImageSourceSVG instance and loads it from the specified resource name.
+- Creates a new ImageSourceSVG instance and loads it from the specified resource name.
 
 ##### ImageSourceSVGModule.fromBase64(source: string): ImageSourceSVG
 
-* Creates a new ImageSourceSVG instance and loads it from the specified resource name.
+- Creates a new ImageSourceSVG instance and loads it from the specified resource name.
 
 ##### ImageSourceSVGModule.fromUrl(url: string): Promise:ImageSourceSVG
 
-* Downloads the image from the provided Url and creates a new ImageSourceSVG instance from it.
+- Downloads the image from the provided Url and creates a new ImageSourceSVG instance from it.
 
 ---
 
 You can call every method in two ways, for example:
 
 ```
-//from the svf file object
+//from the svg file object
 svgFile.loadFromResource(name: string): boolean  // synchronously
 svgFile.fromResource(name: string): ImageSourceSVG //asynchronously
 ```
@@ -88,7 +87,7 @@ Since ver 1.1 Implement a similar image tag to be used as for example:
 
 ```xml
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      xmlns:svg="nativescript-svg" loaded="pageLoaded">
+      xmlns:svg="@teammaestro/nativescript-svg" loaded="pageLoaded">
   <StackLayout>
     <!--svg image tag-->
     <svg:SVGImage src="~/image/nativescript.svg" height="100" />

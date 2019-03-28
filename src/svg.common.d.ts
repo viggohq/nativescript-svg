@@ -1,5 +1,5 @@
-import { View, Property } from "tns-core-modules/ui/core/view";
-import * as definition from "./svg";
+import { View, Property } from 'tns-core-modules/ui/core/view';
+import * as definition from './svg';
 export declare const srcProperty: Property<SVGImage, boolean>;
 export declare const imageSourceProperty: Property<SVGImage, definition.ImageSourceSVG>;
 export declare const isLoadingProperty: Property<SVGImage, boolean>;
@@ -8,7 +8,7 @@ export declare class SVGImage extends View implements definition.SVGImage {
     src: any;
     imageSource: definition.ImageSourceSVG;
     isLoading: boolean;
-    loadMode: "sync" | "async";
+    loadMode: 'sync' | 'async';
     constructor(options?: definition.Options);
     _createImageSourceFromSrc(): void;
 }

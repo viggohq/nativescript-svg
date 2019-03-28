@@ -11,11 +11,25 @@
     }
   },
   "scripts": {
-    "build": "tsc",
-    "demo.ios": "npm run preparedemo ; cd demo ; tns emulate ios",
-    "demo.android": "npm run preparedemo ; cd demo ; tns run android",
-    "preparedemo": "npm run build ; cd demo ; tns plugin remove nativescript-svg ; tns plugin add .. ; tns install",
-    "setup": "cd demo ; npm install ; cd .. ; npm run build ; cd demo ; tns plugin add .. ; cd .."
+    "tsc": "tsc -skipLibCheck",
+    "build": "npm i && tsc",
+    "test.android": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
+    "test.ios": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
+    "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\" --exclude \"*demo*/platforms/**\"",
+    "plugin.link": "npm link && cd ../demo && npm link nativescript-geolocation && cd ../src",
+    "plugin.tscwatch": "npm run tsc -- -w",
+    "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
+    "demo.android": "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
+    "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
+    "precommit": "lint-staged",
+    "development.setup": "npm run setup && npm link && cd ../demo && npm link nativescript-svg && cd ../src",
+    "generate.typings.ios": "cd ../demo && TNS_DEBUG_METADATA_PATH=\"$(pwd)/metadata\" tns build ios && TNS_TYPESCRIPT_DECLARATIONS_PATH=\"$(pwd)/typings\" tns build ios && echo 'Now look for your library typings in demo/typings!'"
+  },
+  "lint-staged": {
+    "*.ts, *.js, *.css, *.scss, *.md, *.html, *.xml": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -46,15 +60,20 @@
   "homepage": "https://github.com/peoplewareDo/nativescript-svg",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "tns-core-modules": "^3.0.0 || ^3.0.0-rc.1",
-    "tns-platform-declarations": "^3.0.0 || ^3.0.0-rc.1",
-    "typescript": "^2.2.2",
-    "nativescript-angular": "^3.0.0 || ^2.0.0-rc.1",
-    "@angular/core": "~4.0.1",
-    "@angular/common": "~4.0.1",
-    "@angular/compiler": "~4.0.1",
-    "@angular/compiler-cli": "~4.0.1",
-    "rxjs": "~5.3.0",
-    "zone.js": "~0.8.4"
+    "nativescript-angular": "~7.2.3",
+    "@angular/core": "~7.2.0",
+    "@angular/common": "~7.2.0",
+    "@angular/compiler": "~7.2.0",
+    "@angular/compiler-cli": "~7.2.0",
+    "rxjs": "~6.4.0",
+    "zone.js": "~0.8.4",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.4",
+    "prettier": "^1.16.4",
+    "rimraf": "^2.6.3",
+    "tns-core-modules": "~5.3.0",
+    "tns-platform-declarations": "~5.3.0",
+    "typescript": "~3.1.6",
+    "tslint": "~5.14.0"
   }
 }

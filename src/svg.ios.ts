@@ -1,3 +1,5 @@
+/// <reference path="./node_modules/tns-platform-declarations/ios.d.ts" />
+
 import svg = require('./svg');
 import common = require('./svg.common');
 import types = require('tns-core-modules/utils/types');
@@ -5,11 +7,6 @@ import fs = require('tns-core-modules/file-system');
 
 global.moduleMerge(common, exports);
 declare var SVGKImage: any;
-
-declare const NSData,
-  NSDataBase64DecodingOptions,
-  NSURL,
-  NSDataBase64EncodingOptions;
 
 export class ImageSourceSVG implements svg.ImageSourceSVG {
   private nativeView: any;
@@ -47,7 +44,7 @@ export class ImageSourceSVG implements svg.ImageSourceSVG {
   }
 
   public loadFromFile(path: string): boolean {
-    var fileName = types.isString(path) ? path.trim() : '';
+    let fileName = types.isString(path) ? path.trim() : '';
 
     if (fileName.indexOf('~/') === 0) {
       fileName = fs.path.join(
@@ -63,7 +60,7 @@ export class ImageSourceSVG implements svg.ImageSourceSVG {
   public fromFile(path: string): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       try {
-        var fileName = types.isString(path) ? path.trim() : '';
+        let fileName = types.isString(path) ? path.trim() : '';
 
         if (fileName.indexOf('~/') === 0) {
           fileName = fs.path.join(
@@ -105,7 +102,7 @@ export class ImageSourceSVG implements svg.ImageSourceSVG {
 
   public loadFromBase64(source: string): boolean {
     if (types.isString(source)) {
-      var data = NSData.alloc().initWithBase64EncodedStringOptions(
+      const data = NSData.alloc().initWithBase64EncodedStringOptions(
         source,
         NSDataBase64DecodingOptions.IgnoreUnknownCharacters
       );
@@ -117,7 +114,7 @@ export class ImageSourceSVG implements svg.ImageSourceSVG {
   public fromBase64(source: string): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       try {
-        var data = NSData.alloc().initWithBase64EncodedStringOptions(
+        const data = NSData.alloc().initWithBase64EncodedStringOptions(
           source,
           NSDataBase64DecodingOptions.IgnoreUnknownCharacters
         );
@@ -155,26 +152,26 @@ export class ImageSourceSVG implements svg.ImageSourceSVG {
       return false;
     }
 
-    var data = getImageData(this.nativeView);
+    const data = getImageData(this.nativeView);
 
-    if (data) {
-      // return data.writeToFileAtomically(path, true);
-    }
+    // if (data) {
+    //   // return data.writeToFileAtomically(path, true);
+    // }
 
     return false;
   }
 
   public toBase64String(format: string): string {
-    var res = null;
+    const res = null;
     if (!this.nativeView) {
       return res;
     }
 
-    var data = getImageData(this.nativeView);
+    const data = getImageData(this.nativeView);
 
-    if (data) {
-      // res = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength);
-    }
+    // if (data) {
+    //   // res = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength);
+    // }
 
     return res;
   }
@@ -197,8 +194,8 @@ export class ImageSourceSVG implements svg.ImageSourceSVG {
 }
 
 function getImageData(instance: any) {
-  var buffer = instance.source.stream;
-  //TODO fix issue, wrong type
+  const buffer = instance.source.stream;
+  // TODO fix issue, wrong type
   throw new Error('Not supported operation');
   // return NSData.alloc().initWithBytes(buffer, NSDataBase64DecodingOptions.NSDataBase64DecodingIgnoreUnknownCharacters);
 }
@@ -211,13 +208,13 @@ export class SVGImage extends common.SVGImage {
   constructor() {
     super();
 
-    //TODO: Think of unified way of setting all the default values.
+    // TODO: Think of unified way of setting all the default values.
     this.nativeView = SVGKFastImageView.alloc().initWithSVGKImage(
       new SVGKImage()
     );
-    //this._ios.contentMode = UIViewContentMode.UIViewContentModeScaleAspectFit;
-    //this._ios.clipsToBounds = true;
-    //this._ios.userInteractionEnabled = true;
+    // this._ios.contentMode = UIViewContentMode.UIViewContentModeScaleAspectFit;
+    // this._ios.clipsToBounds = true;
+    // this._ios.userInteractionEnabled = true;
   }
 
   public _setNativeImage(nativeImage: any) {
@@ -229,23 +226,23 @@ export class SVGImage extends common.SVGImage {
   }
 
   public onMeasure(widthMeasureSpec: number, heightMeasureSpec: number): void {
-    var utils = require('utils/utils');
+    const utils = require('utils/utils');
 
     // We don't call super because we measure native view with specific size.
-    var width = utils.layout.getMeasureSpecSize(widthMeasureSpec);
-    var widthMode = utils.layout.getMeasureSpecMode(widthMeasureSpec);
+    const width = utils.layout.getMeasureSpecSize(widthMeasureSpec);
+    const widthMode = utils.layout.getMeasureSpecMode(widthMeasureSpec);
 
-    var height = utils.layout.getMeasureSpecSize(heightMeasureSpec);
-    var heightMode = utils.layout.getMeasureSpecMode(heightMeasureSpec);
+    const height = utils.layout.getMeasureSpecSize(heightMeasureSpec);
+    const heightMode = utils.layout.getMeasureSpecMode(heightMeasureSpec);
 
-    var nativeWidth = this.imageSource ? this.imageSource.width : 0;
-    var nativeHeight = this.imageSource ? this.imageSource.height : 0;
+    const nativeWidth = this.imageSource ? this.imageSource.width : 0;
+    const nativeHeight = this.imageSource ? this.imageSource.height : 0;
 
-    var measureWidth = Math.max(nativeWidth, this.effectiveMinWidth);
-    var measureHeight = Math.max(nativeHeight, this.effectiveMinHeight);
+    let measureWidth = Math.max(nativeWidth, this.effectiveMinWidth);
+    let measureHeight = Math.max(nativeHeight, this.effectiveMinHeight);
 
-    var finiteWidth: boolean = widthMode !== utils.layout.UNSPECIFIED;
-    var finiteHeight: boolean = heightMode !== utils.layout.UNSPECIFIED;
+    const finiteWidth: boolean = widthMode !== utils.layout.UNSPECIFIED;
+    const finiteHeight: boolean = heightMode !== utils.layout.UNSPECIFIED;
 
     this._imageSourceAffectsLayout =
       widthMode !== utils.layout.EXACTLY || heightMode !== utils.layout.EXACTLY;
@@ -255,13 +252,13 @@ export class SVGImage extends common.SVGImage {
       nativeHeight !== 0 &&
       (finiteWidth || finiteHeight)
     ) {
-      var resultW = nativeWidth;
-      var resultH = nativeHeight;
+      const resultW = nativeWidth;
+      const resultH = nativeHeight;
 
       measureWidth = finiteWidth ? Math.min(resultW, width) : resultW;
       measureHeight = finiteHeight ? Math.min(resultH, height) : resultH;
 
-      var trace = require('trace');
+      const trace = require('trace');
 
       if (trace.enabled) {
         trace.write(
@@ -271,15 +268,15 @@ export class SVGImage extends common.SVGImage {
       }
     }
 
-    var view = require('ui/core/view');
+    const view = require('ui/core/view');
 
-    var widthAndState = view.View.resolveSizeAndState(
+    const widthAndState = view.View.resolveSizeAndState(
       measureWidth,
       width,
       widthMode,
       0
     );
-    var heightAndState = view.View.resolveSizeAndState(
+    const heightAndState = view.View.resolveSizeAndState(
       measureHeight,
       height,
       heightMode,
@@ -290,7 +287,7 @@ export class SVGImage extends common.SVGImage {
   }
 
   [common.imageSourceProperty.setNative](value: any) {
-    var image = <SVGImage>value;
+    const image = <SVGImage>value;
 
     if (!image || !image.nativeView) {
       return;
