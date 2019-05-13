@@ -1,7 +1,7 @@
 /// <reference path="node_modules/tns-platform-declarations/ios.d.ts" />
-import svg = require('./svg');
-import common = require('./svg.common');
-export declare class ImageSourceSVG implements svg.ImageSourceSVG {
+/// <reference path="typings/SVGKit.d.ts" />
+import * as common from './svg.common';
+export declare class ImageSourceSVG {
     private nativeView;
     loadFromResource(name: string): boolean;
     fromResource(name: string): Promise<boolean>;

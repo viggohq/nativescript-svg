@@ -1,14 +1,13 @@
 /// <reference path="./node_modules/tns-platform-declarations/ios.d.ts" />
+/// <reference path="./typings/SVGKit.d.ts" />
 
-import svg = require('./svg');
-import common = require('./svg.common');
-import types = require('tns-core-modules/utils/types');
-import fs = require('tns-core-modules/file-system');
+import * as common from './svg.common';
+import * as types from 'tns-core-modules/utils/types';
+import * as fs from 'tns-core-modules/file-system';
 
 global.moduleMerge(common, exports);
-declare var SVGKImage: any;
 
-export class ImageSourceSVG implements svg.ImageSourceSVG {
+export class ImageSourceSVG {
   private nativeView: any;
 
   public loadFromResource(name: string): boolean {
@@ -20,14 +19,14 @@ export class ImageSourceSVG implements svg.ImageSourceSVG {
   public fromResource(name: string): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       try {
-        (<any>SVGKImage).imageAsynchronouslyNamed(
+        SVGKImage.imageAsynchronouslyNamedOnCompletion(
           name,
           (image, parseResult) => {
             if (image) {
               this.nativeView = image;
               resolve(true);
             } else {
-              (<any>SVGKImage).imageAsynchronouslyNamed(
+              SVGKImage.imageAsynchronouslyNamedOnCompletion(
                 `${name}.svg`,
                 (image, parseResult) => {
                   this.nativeView = image;
@@ -69,9 +68,9 @@ export class ImageSourceSVG implements svg.ImageSourceSVG {
           );
         }
 
-        (<any>SVGKImage).imageWithContentsOfFileAsynchronously(
+        SVGKImage.imageWithContentsOfFileAsynchronouslyOnCompletion(
           fileName,
-          image => {
+          (image: SVGKImage, parseResult: SVGKParseResult) => {
             this.nativeView = image;
             resolve(true);
           }
@@ -90,10 +89,13 @@ export class ImageSourceSVG implements svg.ImageSourceSVG {
   public fromData(data: any): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       try {
-        (<any>SVGKImage).imageWithDataAsynchronously(data, image => {
-          this.nativeView = image;
-          resolve(true);
-        });
+        SVGKImage.imageWithDataAsynchronouslyOnCompletion(
+          data,
+          (image: SVGKImage, parseResult: SVGKParseResult) => {
+            this.nativeView = image;
+            resolve(true);
+          }
+        );
       } catch (ex) {
         reject(ex);
       }
@@ -118,10 +120,13 @@ export class ImageSourceSVG implements svg.ImageSourceSVG {
           source,
           NSDataBase64DecodingOptions.IgnoreUnknownCharacters
         );
-        SVGKImage.imageWithDataAsynchronously(data, image => {
-          this.nativeView = image;
-          resolve(true);
-        });
+        SVGKImage.imageWithDataAsynchronouslyOnCompletion(
+          data,
+          (image: SVGKImage, parseResult: SVGKParseResult) => {
+            this.nativeView = image;
+            resolve(true);
+          }
+        );
       } catch (ex) {
         reject(ex);
       }
@@ -200,21 +205,15 @@ function getImageData(instance: any) {
   // return NSData.alloc().initWithBytes(buffer, NSDataBase64DecodingOptions.NSDataBase64DecodingIgnoreUnknownCharacters);
 }
 
-declare var SVGKFastImageView: any;
-
 export class SVGImage extends common.SVGImage {
   private _imageSourceAffectsLayout: boolean = true;
 
   constructor() {
     super();
 
-    // TODO: Think of unified way of setting all the default values.
     this.nativeView = SVGKFastImageView.alloc().initWithSVGKImage(
       new SVGKImage()
     );
-    // this._ios.contentMode = UIViewContentMode.UIViewContentModeScaleAspectFit;
-    // this._ios.clipsToBounds = true;
-    // this._ios.userInteractionEnabled = true;
   }
 
   public _setNativeImage(nativeImage: any) {

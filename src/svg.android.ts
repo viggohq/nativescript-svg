@@ -1,38 +1,37 @@
 /// <reference path="./node_modules/tns-platform-declarations/android.d.ts" />
 
-import svg = require('./svg');
-import common = require('./svg.common');
-import types = require('tns-core-modules/utils/types');
+import * as common from './svg.common';
+import * as types from 'tns-core-modules/utils/types';
 import * as utilsModule from 'tns-core-modules/utils/utils';
 import * as fileSystemModule from 'tns-core-modules/file-system';
 import * as httpModule from 'tns-core-modules/http';
 
+global.moduleMerge(common, exports);
+
 let http: typeof httpModule;
 function ensureHttp() {
   if (!http) {
-    http = require('http');
+    http = require('tns-core-modules/http');
   }
 }
-
-global.moduleMerge(common, exports);
 
 let utils: typeof utilsModule;
 function ensureUtils() {
   if (!utils) {
-    utils = require('utils/utils');
+    utils = require('tns-core-modules/utils/utils');
   }
 }
 
 let fs: typeof fileSystemModule;
 function ensureFS() {
   if (!fs) {
-    fs = require('file-system');
+    fs = require('tns-core-modules/file-system');
   }
 }
 
 declare let com: any;
 
-export class ImageSourceSVG implements svg.ImageSourceSVG {
+export class ImageSourceSVG {
   private nativeView: any;
 
   public loadFromResource(name: string): boolean {
