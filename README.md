@@ -6,7 +6,7 @@
 
 ## Install
 
-`tns plugin add @teammaestro/nativescript-svg`
+`tns plugin add @viggo/nativescript-svg`
 
 ## Usage
 
@@ -21,7 +21,7 @@ You use it in the same way you use Image source.
 ### Quick start
 
 ```js
-var ImageSourceSVGModule = require('@teammaestro/nativescript-svg');
+var ImageSourceSVGModule = require('@viggo/nativescript-svg');
 var svgFile = new ImageSourceSVGModule.ImageSourceSVG();
 
 var loaded = svgFile.fromResource('foxie');
@@ -87,7 +87,7 @@ Since ver 1.1 Implement a similar image tag to be used as for example:
 
 ```xml
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      xmlns:svg="@teammaestro/nativescript-svg" loaded="pageLoaded">
+      xmlns:svg="@viggo/nativescript-svg" loaded="pageLoaded">
   <StackLayout>
     <!--svg image tag-->
     <svg:SVGImage src="~/image/nativescript.svg" height="100" />
