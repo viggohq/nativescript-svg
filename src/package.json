@@ -1,5 +1,5 @@
 {
-  "name": "@viggo/nativescript-svg",
+  "name": "@viggohq/nativescript-svg",
   "version": "1.1.0",
   "description": "NativeScript SVG plugin",
   "main": "svg",
@@ -10,6 +10,10 @@
       "ios": "3.0.0"
     }
   },
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/viggohq/nativescript-svg.git"
+	},
   "scripts": {
     "tsc": "tsc -skipLibCheck",
     "build": "npm i && ngc",
@@ -30,10 +34,6 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/peoplewareDo/nativescript-svg.git"
   },
   "keywords": [
     "NativeScript",

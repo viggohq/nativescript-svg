@@ -1,5 +1,5 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" 
-    xmlns:svg="@teammaestro/nativescript-svg" navigatingTo="onNavigatingTo">
+    xmlns:svg="@viggohq/nativescript-svg" navigatingTo="onNavigatingTo">
     <StackLayout>
         <Label text="Tap the button" class="title"/>
         <Button text="TAP" tap="{{ onTap }}" />
